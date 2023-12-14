@@ -1,0 +1,71 @@
+
+    function numAleatorio() {
+      let numeroAleatorio = Math.random()
+      return Math.floor(numeroAleatorio * 3) + 1
+    }
+
+    function eligePc() {
+      let pc = numAleatorio()
+
+      if (pc === 1) {
+        return 'piedra'
+      }
+      if (pc === 2) {
+        return 'papel'
+      }
+      if (pc === 3) {
+        return 'tijeras'
+      }
+    }
+
+function validarEntrada(entrada)
+{
+  if (entrada==='piedra'||entrada==='tijeras'||entrada==='papel')
+  {
+    return true
+  }
+  return false
+}
+
+    function game(j1) {
+
+      if (validarEntrada(j1))
+      {
+      let j2 = eligePc()  // nos da papel,tijera,piedra del Pc
+
+      console.log(`Usuario (${j1}) PC(${j2})`)
+
+      if (j1 === j2) {
+        return ` Ambos habeis elegido ${j1}
+            empate`
+      }
+      if (j1 === 'piedra' && j2 === 'tijeras') {
+        return `Piedra gana sobre tijera
+            Has ganado`
+      }
+      if (j1 === 'piedra' && j2 === 'papel') {
+        return `Piedra pierde sobre papel
+            Has perdido`
+      }
+      if (j1 === 'tijeras' && j2 === 'piedra') {
+        return `Tijeras pierde sobre piedra
+            Has perdido`
+      }
+      if (j1 === 'tijeras' && j2 === 'papel') {
+        return `tijera gana sobre papel
+            Has ganado`
+      }
+      if (j1 === 'papel' && j2 === 'piedra') {
+        return `Papel gana sobre piedra
+            Has ganado`
+      }
+      if (j1 === 'papel' && j2 === 'tijeras') {
+        return `Papel pierde sobre tijeras
+            Has perdido`
+      }
+      }
+      else
+      {
+        return "ERROR: la entrada ha de ser \'papel\' \'piedra\' \'tijeras\' "
+      }
+    }
